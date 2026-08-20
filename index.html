@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GoalZone</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              primary: '#ff6347',
+              dark: '#0f0f0f',
+              card: '#1a1a1a'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .line-clamp-2 {
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 2;
+      line-clamp: 2;
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body class="bg-brand-dark text-white antialiased transition-colors duration-300">
+
+  <!-- Header -->
+  <header class="bg-black sticky top-0 z-50 border-b-2 border-brand-primary">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="flex items-center justify-between h-14 md:h-16">
+        <!-- Logo -->
+        <a href="index.html" class="flex items-center gap-1">
+          <span class="text-2xl md:text-3xl font-black tracking-tighter">GOAL</span>
+          <span class="text-brand-primary text-[10px] font-bold hidden sm:inline">ZONE</span>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="hidden lg:flex items-center gap-6 text-sm font-medium">
+          <a href="index.html" class="text-brand-primary">Home</a>
+          <a href="news.html" class="hover:text-brand-primary transition">News</a>
+          <a href="#" class="hover:text-brand-primary transition">Live Scores</a>
+          <a href="#" class="hover:text-brand-primary transition">Transfers</a>
+          <a href="#" class="hover:text-brand-primary transition">World Cup</a>
+          <a href="#" class="hover:text-brand-primary transition">NXGN</a>
+        </nav>
+
+        <!-- Actions -->
+        <div class="flex items-center gap-1">
+          <!-- Theme Toggle -->
+          <button id="themeToggle" class="p-2 hover:bg-white/10 rounded-full transition" aria-label="Toggle theme">
+            <svg id="moonIcon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+            </svg>
+            <svg id="sunIcon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+            </svg>
+          </button>
+
+          <!-- Search -->
+          <button class="p-2 hover:bg-white/10 rounded-full transition" aria-label="Search">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+            </svg>
+          </button>
+
+          <!-- Mobile Menu Button -->
+          <button id="menuBtn" class="lg:hidden p-2 hover:bg-white/10 rounded-full" aria-label="Menu">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobileMenu" class="hidden lg:hidden bg-black border-t border-white/10">
+      <nav class="flex flex-col px-4 py-3 text-sm font-medium">
+        <a href="index.html" class="text-brand-primary py-2.5">Home</a>
+        <a href="news.html" class="py-2.5 hover:text-brand-primary">News</a>
+        <a href="#" class="py-2.5 hover:text-brand-primary">Live Scores</a>
+        <a href="#" class="py-2.5 hover:text-brand-primary">Transfers</a>
+        <a href="#" class="py-2.5 hover:text-brand-primary">World Cup</a>
+        <a href="#" class="py-2.5 hover:text-brand-primary">NXGN</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-4 py-6">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+
+      <!-- Main Content -->
+      <div class="lg:col-span-8 space-y-6">
+
+        <!-- Featured Story -->
+        <a href="article.html" class="block group">
+          <article class="relative rounded-xl overflow-hidden bg-brand-card">
+            <div class="aspect-[16/9] md:aspect-[2.1/1] relative">
+              <img src="images/nike.jpg" 
+                   alt="Featured" 
+                   class="w-full h-full object-cover group-hover:scale-[1.02] transition duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
+              <div class="absolute bottom-0 left-0 p-5 md:p-7">
+                <span class="inline-block px-2 py-0.5 text-xs font-bold bg-brand-primary rounded mb-2">BREAKING</span>
+                <h1 class="text-xl md:text-3xl lg:text-4xl font-extrabold leading-tight group-hover:text-brand-primary transition">
+                  Mbappe's Nike split signals seismic shift for boot deals
+                </h1>
+                <p class="text-gray-300 text-sm mt-2 max-w-2xl line-clamp-2 hidden md:block">
+                  The Real Madrid forward is set to leave Nike for an emerging brand in a move that could reshape the football boot market.
+                </p>
+                <div class="flex items-center gap-2 mt-3 text-xs text-gray-400">
+                  <span>1 hour ago</span>
+                  <span>•</span>
+                  <span>James Spencer</span>
+                </div>
+              </div>
+            </div>
+          </article>
+        </a>
+
+        <!-- Secondary Stories -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <a href="article.html" class="group">
+            <article class="bg-brand-card rounded-xl overflow-hidden h-full">
+              <div class="aspect-video relative overflow-hidden">
+                <img src="images/calos.jpg" 
+                     class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                <div class="absolute bottom-3 left-3 right-3">
+                  <span class="text-xs font-bold text-brand-primary">MAN UNITED</span>
+                  <h3 class="font-bold text-base leading-snug mt-1 group-hover:text-brand-primary transition">
+                    Why Carlos Baleba is exactly what Man United need
+                  </h3>
+                </div>
+              </div>
+            </article>
+          </a>
+
+          <a href="article.html" class="group">
+            <article class="bg-brand-card rounded-xl overflow-hidden h-full">
+              <div class="aspect-video relative overflow-hidden">
+                <img src="images/carrick.jpg" 
+                     class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                <div class="absolute bottom-3 left-3 right-3">
+                  <span class="text-xs font-bold text-brand-primary">PREDICTIONS</span>
+                  <h3 class="font-bold text-base leading-snug mt-1 group-hover:text-brand-primary transition">
+                    Carrick gone by Christmas? Bold predictions for 2026-27
+                  </h3>
+                </div>
+              </div>
+            </article>
+          </a>
+        </div>
+
+        <!-- Latest News -->
+        <section>
+          <div class="flex items-center justify-between mb-4">
+            <h2 class="text-lg font-bold flex items-center gap-2">
+              <span class="w-1 h-5 bg-brand-primary rounded-full"></span>
+              Latest News
+            </h2>
+            <a href="news.html" class="text-sm text-brand-primary hover:underline">View all</a>
+          </div>
+
+          <div class="space-y-3">
+            <a href="article.html" class="flex gap-3 p-3 bg-brand-card rounded-xl hover:bg-white/5 transition group">
+              <img src="images/ian.jpg" 
+                   class="w-24 h-16 md:w-28 md:h-20 object-cover rounded-lg flex-shrink-0" alt="">
+              <div class="min-w-0">
+                <span class="text-xs font-bold text-brand-primary">ARSENAL</span>
+                <h3 class="font-semibold text-sm leading-snug mt-0.5 group-hover:text-brand-primary transition line-clamp-2">
+                  Ian Wright fears financial pressure could force Arsenal to sell Lewis-Skelly
+                </h3>
+                <p class="text-xs text-gray-500 mt-1">14 mins ago</p>
+              </div>
+            </a>
+
+            <a href="article.html" class="flex gap-3 p-3 bg-brand-card rounded-xl hover:bg-white/5 transition group">
+              <img src="images/joa.jpg" 
+                   class="w-24 h-16 md:w-28 md:h-20 object-cover rounded-lg flex-shrink-0" alt="">
+              <div class="min-w-0">
+                <span class="text-xs font-bold text-brand-primary">BARCELONA</span>
+                <h3 class="font-semibold text-sm leading-snug mt-0.5 group-hover:text-brand-primary transition line-clamp-2">
+                  Frustrated Cancelo storms down tunnel after presentation snub
+                </h3>
+                <p class="text-xs text-gray-500 mt-1">27 mins ago</p>
+              </div>
+            </a>
+          </div>
+        </section>
+      </div>
+
+      <!-- Sidebar -->
+      <aside class="lg:col-span-4 space-y-5">
+        <!-- Live Scores -->
+        <div class="bg-brand-card rounded-xl overflow-hidden">
+          <div class="px-4 py-3 border-b border-white/10 flex items-center justify-between">
+            <h2 class="font-bold text-sm flex items-center gap-2">
+              <span class="w-2 h-2 bg-red-500 rounded-full animate-pulse"></span>
+              Live Scores
+            </h2>
+            <a href="#" class="text-xs text-brand-primary hover:underline">View all</a>
+          </div>
+          <div class="divide-y divide-white/5 text-sm">
+            <div class="px-4 py-3">
+              <div class="flex justify-between mb-1">
+                <span>Barcelona</span>
+                <span class="font-bold">2</span>
+              </div>
+              <div class="flex justify-between text-gray-400">
+                <span>Al Ahly</span>
+                <span class="font-bold">1</span>
+              </div>
+              <div class="text-xs text-gray-500 mt-1">FT</div>
+            </div>
+            <div class="px-4 py-3">
+              <div class="flex justify-between mb-1">
+                <span>Arsenal</span>
+                <span class="font-bold">3</span>
+              </div>
+              <div class="flex justify-between text-gray-400">
+                <span>Man City</span>
+                <span class="font-bold">0</span>
+              </div>
+              <div class="text-xs text-gray-500 mt-1">FT</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Most Read -->
+        <div class="bg-brand-card rounded-xl p-4">
+          <h2 class="font-bold text-sm mb-4 flex items-center gap-2">
+            <span class="w-1 h-4 bg-brand-primary rounded-full"></span>
+            Most Read
+          </h2>
+          <div class="space-y-4">
+            <a href="article.html" class="flex gap-3 group">
+              <span class="text-xl font-black text-brand-primary/40">1</span>
+              <p class="text-sm leading-snug group-hover:text-brand-primary transition">Mbappe's Nike split – what it means for the industry</p>
+            </a>
+            <a href="article.html" class="flex gap-3 group">
+              <span class="text-xl font-black text-brand-primary/40">2</span>
+              <p class="text-sm leading-snug group-hover:text-brand-primary transition">Why Baleba would be a perfect signing for Man United</p>
+            </a>
+            <a href="article.html" class="flex gap-3 group">
+              <span class="text-xl font-black text-brand-primary/40">3</span>
+              <p class="text-sm leading-snug group-hover:text-brand-primary transition">Bold predictions for the 2026-27 Premier League season</p>
+            </a>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-black border-t border-white/10 mt-16">
+    <div class="max-w-7xl mx-auto px-4 py-10">
+      <div class="flex flex-wrap gap-x-6 gap-y-3 text-sm text-gray-400 mb-8">
+        <a href="#" class="hover:text-white transition">Contact Us</a>
+        <a href="#" class="hover:text-white transition">Terms of Service</a>
+        <a href="#" class="hover:text-white transition">Privacy policy</a>
+        <a href="#" class="hover:text-white transition">Careers</a>
+        <a href="#" class="hover:text-white transition">Goal App (Android)</a>
+        <a href="#" class="hover:text-white transition">Goal App (iOS)</a>
+        <a href="#" class="hover:text-white transition">Goal Live</a>
+        <a href="#" class="hover:text-white transition">Betting</a>
+      </div>
+
+      <div class="mb-8">
+        <a href="#" class="text-sm text-gray-400 hover:text-white transition">
+          Add as preferred source on Google
+        </a>
+      </div>
+
+      <div class="pt-6 border-t border-white/10">
+        <p class="text-xs text-gray-500 leading-relaxed">
+          © 2026 <span class="text-white font-medium">GoalZone</span>. All rights reserved. 
+          This is an educational frontend project inspired by GOAL.ZONE and is not affiliated with GOAL.
+        </p>
+      </div>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>

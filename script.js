@@ -14,23 +14,29 @@ const moonIcon = document.getElementById('moonIcon');
 const sunIcon = document.getElementById('sunIcon');
 const html = document.documentElement;
 
+// Load saved theme
 if (localStorage.getItem('theme') === 'light') {
   html.classList.remove('dark');
   if (moonIcon) moonIcon.classList.add('hidden');
   if (sunIcon) sunIcon.classList.remove('hidden');
+} else {
+  html.classList.add('dark');
 }
 
+// Toggle theme
 if (themeToggle) {
   themeToggle.addEventListener('click', () => {
     if (html.classList.contains('dark')) {
+      // Switch to Light
       html.classList.remove('dark');
-      if (moonIcon) moonIcon.classList.add('hidden');
-      if (sunIcon) sunIcon.classList.remove('hidden');
+      moonIcon?.classList.add('hidden');
+      sunIcon?.classList.remove('hidden');
       localStorage.setItem('theme', 'light');
     } else {
+      // Switch to Dark
       html.classList.add('dark');
-      if (sunIcon) sunIcon.classList.add('hidden');
-      if (moonIcon) moonIcon.classList.remove('hidden');
+      sunIcon?.classList.add('hidden');
+      moonIcon?.classList.remove('hidden');
       localStorage.setItem('theme', 'dark');
     }
   });

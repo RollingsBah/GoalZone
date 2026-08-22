@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GoalZone</title>
+  <title> GoalZone</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -31,32 +31,25 @@
     }
   </style>
 </head>
-<body class="bg-brand-dark text-white antialiased transition-colors duration-300">
+<body class="bg-gray-100 text-gray-900 dark:bg-brand-dark dark:text-white antialiased transition-colors duration-300">
 
-  <!-- Header -->
-  <header class="bg-black sticky top-0 z-50 border-b-2 border-brand-primary">
+  <!-- HEADER -->
+  <header class="bg-white dark:bg-black sticky top-0 z-50 border-b border-gray-200 dark:border-white/10">
     <div class="max-w-7xl mx-auto px-4">
       <div class="flex items-center justify-between h-14 md:h-16">
-        <!-- Logo -->
-        <a href="index.html" class="flex items-center gap-1">
-          <span class="text-2xl md:text-3xl font-black tracking-tighter">GOAL</span>
-          <span class="text-brand-primary text-[10px] font-bold hidden sm:inline">ZONE</span>
-        </a>
 
-        <!-- Desktop Navigation -->
-        <nav class="hidden lg:flex items-center gap-6 text-sm font-medium">
-          <a href="index.html" class="text-brand-primary">Home</a>
-          <a href="news.html" class="hover:text-brand-primary transition">News</a>
-          <a href="#" class="hover:text-brand-primary transition">Live Scores</a>
-          <a href="#" class="hover:text-brand-primary transition">Transfers</a>
-          <a href="#" class="hover:text-brand-primary transition">World Cup</a>
-          <a href="#" class="hover:text-brand-primary transition">NXGN</a>
-        </nav>
+        <div class="flex items-center gap-3">
+          <a href="index.html" class="text-2xl font-black tracking-tighter">GOAL</a>
+          <a href="#" class="hidden sm:flex items-center gap-1.5 text-sm font-medium hover:text-brand-primary transition">
+            <span class="w-2 h-2 bg-blue-500 rounded-full"></span> Live
+          </a>
+          <a href="#" class="hidden sm:flex items-center gap-1.5 text-sm font-medium border border-gray-300 dark:border-white/20 rounded-full px-3 py-1 hover:bg-gray-100 dark:hover:bg-white/10 transition">
+            Tickets
+          </a>
+        </div>
 
-        <!-- Actions -->
         <div class="flex items-center gap-1">
-          <!-- Theme Toggle -->
-          <button id="themeToggle" class="p-2 hover:bg-white/10 rounded-full transition" aria-label="Toggle theme">
+          <button id="themeToggle" class="p-2 hover:bg-gray-100 dark:hover:bg-white/10 rounded-full transition">
             <svg id="moonIcon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
             </svg>
@@ -65,15 +58,7 @@
             </svg>
           </button>
 
-          <!-- Search -->
-          <button class="p-2 hover:bg-white/10 rounded-full transition" aria-label="Search">
-            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
-            </svg>
-          </button>
-
-          <!-- Mobile Menu Button -->
-          <button id="menuBtn" class="lg:hidden p-2 hover:bg-white/10 rounded-full" aria-label="Menu">
+          <button id="menuBtn" class="p-2 hover:bg-gray-100 dark:hover:bg-white/10 rounded-full lg:hidden">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
             </svg>
@@ -82,80 +67,67 @@
       </div>
     </div>
 
-    <!-- Mobile Menu -->
-    <div id="mobileMenu" class="hidden lg:hidden bg-black border-t border-white/10">
+    <div id="mobileMenu" class="hidden lg:hidden bg-white dark:bg-black border-t border-gray-200 dark:border-white/10">
       <nav class="flex flex-col px-4 py-3 text-sm font-medium">
-        <a href="index.html" class="text-brand-primary py-2.5">Home</a>
+        <a href="index.html" class="py-2.5 text-brand-primary">Home</a>
         <a href="news.html" class="py-2.5 hover:text-brand-primary">News</a>
         <a href="#" class="py-2.5 hover:text-brand-primary">Live Scores</a>
         <a href="#" class="py-2.5 hover:text-brand-primary">Transfers</a>
-        <a href="#" class="py-2.5 hover:text-brand-primary">World Cup</a>
-        <a href="#" class="py-2.5 hover:text-brand-primary">NXGN</a>
       </nav>
     </div>
   </header>
 
+  <!-- MAIN -->
   <main class="max-w-7xl mx-auto px-4 py-6">
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
 
-      <!-- Main Content -->
-      <div class="lg:col-span-8 space-y-6">
+      <!-- LEFT -->
+      <div class="lg:col-span-8 space-y-8">
 
-        <!-- Featured Story -->
+        <!-- Featured -->
         <a href="article.html" class="block group">
-          <article class="relative rounded-xl overflow-hidden bg-brand-card">
+          <article class="relative rounded-xl overflow-hidden bg-white dark:bg-brand-card shadow-sm">
             <div class="aspect-[16/9] md:aspect-[2.1/1] relative">
-              <img src="images/golden.jpg" 
-                   alt="Featured" 
-                   class="w-full h-full object-cover group-hover:scale-[1.02] transition duration-500">
+              <img src="images/golden.jpg" alt="Featured" class="w-full h-full object-cover group-hover:scale-[1.02] transition duration-500">
               <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
-              <div class="absolute bottom-0 left-0 p-5 md:p-7">
+              <div class="absolute bottom-0 left-0 p-4 md:p-7 text-white">
                 <span class="inline-block px-2 py-0.5 text-xs font-bold bg-brand-primary rounded mb-2">BREAKING</span>
                 <h1 class="text-xl md:text-3xl lg:text-4xl font-extrabold leading-tight group-hover:text-brand-primary transition">
                   Mbappe's Nike split signals seismic shift for boot deals
                 </h1>
                 <p class="text-gray-300 text-sm mt-2 max-w-2xl line-clamp-2 hidden md:block">
-                  The Real Madrid forward is set to leave Nike for an emerging brand in a move that could reshape the football boot market.
+                  The Real Madrid forward is set to leave Nike for an emerging brand.
                 </p>
                 <div class="flex items-center gap-2 mt-3 text-xs text-gray-400">
-                  <span>1 hour ago</span>
-                  <span>•</span>
-                  <span>James Spencer</span>
+                  <span>1 hour ago</span> • <span>James Spencer</span>
                 </div>
               </div>
             </div>
           </article>
         </a>
 
-        <!-- Secondary Stories -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <!-- Secondary -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <a href="article.html" class="group">
-            <article class="bg-brand-card rounded-xl overflow-hidden h-full">
+            <article class="bg-white dark:bg-brand-card rounded-xl overflow-hidden h-full shadow-sm">
               <div class="aspect-video relative overflow-hidden">
-                <img src="images/calos.jpg" 
-                     class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="">
+                <img src="images/calos.jpg" alt="Carlos" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                 <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
-                <div class="absolute bottom-3 left-3 right-3">
+                <div class="absolute bottom-3 left-3 right-3 text-white">
                   <span class="text-xs font-bold text-brand-primary">MAN UNITED</span>
-                  <h3 class="font-bold text-base leading-snug mt-1 group-hover:text-brand-primary transition">
-                    Why Carlos Baleba is exactly what Man United need
-                  </h3>
+                  <h3 class="font-bold text-sm md:text-base mt-1 group-hover:text-brand-primary transition">Why Carlos Baleba is exactly what Man United need</h3>
                 </div>
               </div>
             </article>
           </a>
-
           <a href="article.html" class="group">
-            <article class="bg-brand-card rounded-xl overflow-hidden h-full">
+            <article class="bg-white dark:bg-brand-card rounded-xl overflow-hidden h-full shadow-sm">
               <div class="aspect-video relative overflow-hidden">
-                <img src="images/carrick.jpg" 
-                     class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="">
+                <img src="images/carrick.jpg" alt="Carrick" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                 <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
-                <div class="absolute bottom-3 left-3 right-3">
+                <div class="absolute bottom-3 left-3 right-3 text-white">
                   <span class="text-xs font-bold text-brand-primary">PREDICTIONS</span>
-                  <h3 class="font-bold text-base leading-snug mt-1 group-hover:text-brand-primary transition">
-                    Carrick gone by Christmas? Bold predictions for 2026-27
-                  </h3>
+                  <h3 class="font-bold text-sm md:text-base mt-1 group-hover:text-brand-primary transition">Carrick gone by Christmas? Bold predictions</h3>
                 </div>
               </div>
             </article>
@@ -171,74 +143,101 @@
             </h2>
             <a href="news.html" class="text-sm text-brand-primary hover:underline">View all</a>
           </div>
-
           <div class="space-y-3">
-            <a href="article.html" class="flex gap-3 p-3 bg-brand-card rounded-xl hover:bg-white/5 transition group">
-              <img src="images/ian.jpg" 
-                   class="w-24 h-16 md:w-28 md:h-20 object-cover rounded-lg flex-shrink-0" alt="">
-              <div class="min-w-0">
+            <a href="article.html" class="flex gap-3 p-3 bg-white dark:bg-brand-card rounded-xl hover:bg-gray-50 dark:hover:bg-white/5 transition group shadow-sm">
+              <img src="images/ian.jpg" alt="Ian" class="w-24 h-16 object-cover rounded-lg flex-shrink-0">
+              <div>
                 <span class="text-xs font-bold text-brand-primary">ARSENAL</span>
-                <h3 class="font-semibold text-sm leading-snug mt-0.5 group-hover:text-brand-primary transition line-clamp-2">
-                  Ian Wright fears financial pressure could force Arsenal to sell Lewis-Skelly
-                </h3>
+                <h3 class="font-semibold text-sm mt-0.5 group-hover:text-brand-primary transition line-clamp-2">Ian Wright fears financial pressure could force Arsenal to sell Lewis-Skelly</h3>
                 <p class="text-xs text-gray-500 mt-1">14 mins ago</p>
               </div>
             </a>
-
-            <a href="article.html" class="flex gap-3 p-3 bg-brand-card rounded-xl hover:bg-white/5 transition group">
-              <img src="images/canelo.jpg" 
-                   class="w-24 h-16 md:w-28 md:h-20 object-cover rounded-lg flex-shrink-0" alt="">
-              <div class="min-w-0">
+            <a href="article.html" class="flex gap-3 p-3 bg-white dark:bg-brand-card rounded-xl hover:bg-gray-50 dark:hover:bg-white/5 transition group shadow-sm">
+              <img src="images/canelo.jpg" alt="Cancelo" class="w-24 h-16 object-cover rounded-lg flex-shrink-0">
+              <div>
                 <span class="text-xs font-bold text-brand-primary">BARCELONA</span>
-                <h3 class="font-semibold text-sm leading-snug mt-0.5 group-hover:text-brand-primary transition line-clamp-2">
-                  Frustrated Cancelo storms down tunnel after presentation snub
-                </h3>
+                <h3 class="font-semibold text-sm mt-0.5 group-hover:text-brand-primary transition line-clamp-2">Frustrated Cancelo storms down tunnel after presentation snub</h3>
                 <p class="text-xs text-gray-500 mt-1">27 mins ago</p>
               </div>
             </a>
           </div>
         </section>
+
+        <!-- Team News -->
+        <section>
+          <h2 class="text-lg font-bold mb-4 flex items-center gap-2">
+            <span class="w-1 h-5 bg-brand-primary rounded-full"></span>
+            Team News
+          </h2>
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+            <a href="#" class="bg-white dark:bg-brand-card rounded-xl p-4 text-center hover:bg-gray-50 dark:hover:bg-white/5 transition shadow-sm">
+              <img src="logos/man-united.png" alt="Man United" class="w-12 h-12 mx-auto mb-2 object-contain">
+              <p class="text-sm font-medium">Man United</p>
+            </a>
+            <a href="#" class="bg-white dark:bg-brand-card rounded-xl p-4 text-center hover:bg-gray-50 dark:hover:bg-white/5 transition shadow-sm">
+              <img src="logos/liverpool.png" alt="Liverpool" class="w-12 h-12 mx-auto mb-2 object-contain">
+              <p class="text-sm font-medium">Liverpool</p>
+            </a>
+            <a href="#" class="bg-white dark:bg-brand-card rounded-xl p-4 text-center hover:bg-gray-50 dark:hover:bg-white/5 transition shadow-sm">
+              <img src="logos/chelsea.png" alt="Chelsea" class="w-12 h-12 mx-auto mb-2 object-contain">
+              <p class="text-sm font-medium">Chelsea</p>
+            </a>
+            <a href="#" class="bg-white dark:bg-brand-card rounded-xl p-4 text-center hover:bg-gray-50 dark:hover:bg-white/5 transition shadow-sm">
+              <img src="logos/man-city.png" alt="Man City" class="w-12 h-12 mx-auto mb-2 object-contain">
+              <p class="text-sm font-medium">Man City</p>
+            </a>
+          </div>
+        </section>
+
+        <!-- Videos -->
+        <section>
+          <div class="flex items-center justify-between mb-4">
+            <h2 class="text-lg font-bold flex items-center gap-2">
+              <span class="w-1 h-5 bg-brand-primary rounded-full"></span>
+              Videos
+            </h2>
+            <a href="#" class="text-sm text-brand-primary hover:underline">More videos</a>
+          </div>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="rounded-xl overflow-hidden aspect-video bg-black">
+              <video class="w-full h-full object-cover" controls>
+                <source src="videos/myvideo1.mp4" type="video/mp4">
+              </video>
+            </div>
+            <div class="rounded-xl overflow-hidden aspect-video bg-black">
+              <video class="w-full h-full object-cover" controls>
+                <source src="videos/myvideo2.mp4" type="video/mp4">
+              </video>
+            </div>
+          </div>
+        </section>
       </div>
 
-      <!-- Sidebar -->
+      <!-- SIDEBAR -->
       <aside class="lg:col-span-4 space-y-5">
-        <!-- Live Scores -->
-        <div class="bg-brand-card rounded-xl overflow-hidden">
-          <div class="px-4 py-3 border-b border-white/10 flex items-center justify-between">
+        <div class="bg-white dark:bg-brand-card rounded-xl overflow-hidden shadow-sm">
+          <div class="px-4 py-3 border-b border-gray-200 dark:border-white/10 flex items-center justify-between">
             <h2 class="font-bold text-sm flex items-center gap-2">
               <span class="w-2 h-2 bg-red-500 rounded-full animate-pulse"></span>
               Live Scores
             </h2>
-            <a href="#" class="text-xs text-brand-primary hover:underline">View all</a>
+            <a href="#" class="text-xs text-brand-primary">View all</a>
           </div>
-          <div class="divide-y divide-white/5 text-sm">
+          <div class="divide-y divide-gray-200 dark:divide-white/5 text-sm">
             <div class="px-4 py-3">
-              <div class="flex justify-between mb-1">
-                <span>Barcelona</span>
-                <span class="font-bold">2</span>
-              </div>
-              <div class="flex justify-between text-gray-400">
-                <span>Al Ahly</span>
-                <span class="font-bold">1</span>
-              </div>
-              <div class="text-xs text-gray-500 mt-1">FT</div>
+              <div class="flex justify-between mb-1"><span>Barcelona</span><span class="font-bold">2</span></div>
+              <div class="flex justify-between text-gray-500 dark:text-gray-400"><span>Al Ahly</span><span class="font-bold">1</span></div>
+              <div class="text-xs text-red-500 mt-1">LIVE 67'</div>
             </div>
             <div class="px-4 py-3">
-              <div class="flex justify-between mb-1">
-                <span>Arsenal</span>
-                <span class="font-bold">3</span>
-              </div>
-              <div class="flex justify-between text-gray-400">
-                <span>Man City</span>
-                <span class="font-bold">0</span>
-              </div>
+              <div class="flex justify-between mb-1"><span>Arsenal</span><span class="font-bold">3</span></div>
+              <div class="flex justify-between text-gray-500 dark:text-gray-400"><span>Man City</span><span class="font-bold">0</span></div>
               <div class="text-xs text-gray-500 mt-1">FT</div>
             </div>
           </div>
         </div>
 
-        <!-- Most Read -->
-        <div class="bg-brand-card rounded-xl p-4">
+        <div class="bg-white dark:bg-brand-card rounded-xl p-4 shadow-sm">
           <h2 class="font-bold text-sm mb-4 flex items-center gap-2">
             <span class="w-1 h-4 bg-brand-primary rounded-full"></span>
             Most Read
@@ -246,15 +245,15 @@
           <div class="space-y-4">
             <a href="article.html" class="flex gap-3 group">
               <span class="text-xl font-black text-brand-primary/40">1</span>
-              <p class="text-sm leading-snug group-hover:text-brand-primary transition">Mbappe's Nike split – what it means for the industry</p>
+              <p class="text-sm leading-snug group-hover:text-brand-primary transition">Mbappe's Nike split – full story</p>
             </a>
             <a href="article.html" class="flex gap-3 group">
               <span class="text-xl font-black text-brand-primary/40">2</span>
-              <p class="text-sm leading-snug group-hover:text-brand-primary transition">Why Baleba would be a perfect signing for Man United</p>
+              <p class="text-sm leading-snug group-hover:text-brand-primary transition">Why Baleba is perfect for Man United</p>
             </a>
             <a href="article.html" class="flex gap-3 group">
               <span class="text-xl font-black text-brand-primary/40">3</span>
-              <p class="text-sm leading-snug group-hover:text-brand-primary transition">Bold predictions for the 2026-27 Premier League season</p>
+              <p class="text-sm leading-snug group-hover:text-brand-primary transition">Bold predictions for 2026-27</p>
             </a>
           </div>
         </div>
@@ -262,34 +261,35 @@
     </div>
   </main>
 
-  <!-- Footer -->
-  <footer class="bg-black border-t border-white/10 mt-16">
+  <!-- FOOTER -->
+  <footer class="bg-white dark:bg-black border-t border-gray-200 dark:border-white/10 mt-12">
     <div class="max-w-7xl mx-auto px-4 py-10">
-      <div class="flex flex-wrap gap-x-6 gap-y-3 text-sm text-gray-400 mb-8">
-        <a href="#" class="hover:text-white transition">Contact Us</a>
-        <a href="#" class="hover:text-white transition">Terms of Service</a>
-        <a href="#" class="hover:text-white transition">Privacy policy</a>
-        <a href="#" class="hover:text-white transition">Careers</a>
-        <a href="#" class="hover:text-white transition">Goal App (Android)</a>
-        <a href="#" class="hover:text-white transition">Goal App (iOS)</a>
-        <a href="#" class="hover:text-white transition">Goal Live</a>
-        <a href="#" class="hover:text-white transition">Betting</a>
+      <div class="flex justify-center mb-8">
+        <div class="bg-gray-100 dark:bg-[#151515] border border-gray-300 dark:border-white/15 px-10 py-3 rounded-md">
+          <span class="text-3xl font-black tracking-tighter">GOAL</span>
+        </div>
       </div>
 
-      <div class="mb-8">
-        <a href="#" class="text-sm text-gray-400 hover:text-white transition">
-          Add as preferred source on Google
-        </a>
+      <div class="flex flex-wrap justify-center gap-x-4 gap-y-2 text-sm text-gray-600 dark:text-gray-400 mb-6">
+        <a href="#" class="hover:text-brand-primary">Contact Us</a>
+        <span>|</span>
+        <a href="#" class="hover:text-brand-primary">Terms of Service</a>
+        <span>|</span>
+        <a href="#" class="hover:text-brand-primary">Privacy policy</a>
+        <span>|</span>
+        <a href="#" class="hover:text-brand-primary">Careers</a>
+        <span>|</span>
+        <a href="#" class="hover:text-brand-primary">Goal Live</a>
+        <span>|</span>
+        <a href="#" class="hover:text-brand-primary">Betting</a>
       </div>
 
-      <div class="pt-6 border-t border-white/10">
-        <p class="text-xs text-gray-500 leading-relaxed">
-          © 2026 <span class="text-white font-medium">GoalZone</span>. All rights reserved. 
-          This is an educational frontend project inspired by GOAL.ZONE and is not affiliated with GOAL.
-        </p>
+      <div class="text-center text-xs text-gray-500">
+        Copyright © 2026 GoalZone Educational project inspired by GOAL.com.
       </div>
     </div>
   </footer>
+
   <script src="script.js"></script>
 </body>
 </html>

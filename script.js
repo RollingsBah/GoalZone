@@ -1,4 +1,6 @@
+// ======================
 // Mobile Menu
+// ======================
 const menuBtn = document.getElementById('menuBtn');
 const mobileMenu = document.getElementById('mobileMenu');
 
@@ -8,36 +10,64 @@ if (menuBtn && mobileMenu) {
   });
 }
 
+// ======================
 // Theme Toggle
+// ======================
 const themeToggle = document.getElementById('themeToggle');
 const moonIcon = document.getElementById('moonIcon');
 const sunIcon = document.getElementById('sunIcon');
 const html = document.documentElement;
 
-// Load saved theme
 if (localStorage.getItem('theme') === 'light') {
   html.classList.remove('dark');
   if (moonIcon) moonIcon.classList.add('hidden');
   if (sunIcon) sunIcon.classList.remove('hidden');
-} else {
-  html.classList.add('dark');
 }
 
-// Toggle theme
 if (themeToggle) {
   themeToggle.addEventListener('click', () => {
     if (html.classList.contains('dark')) {
-      // Switch to Light
       html.classList.remove('dark');
-      moonIcon?.classList.add('hidden');
-      sunIcon?.classList.remove('hidden');
+      if (moonIcon) moonIcon.classList.add('hidden');
+      if (sunIcon) sunIcon.classList.remove('hidden');
       localStorage.setItem('theme', 'light');
     } else {
-      // Switch to Dark
       html.classList.add('dark');
-      sunIcon?.classList.add('hidden');
-      moonIcon?.classList.remove('hidden');
+      if (sunIcon) sunIcon.classList.add('hidden');
+      if (moonIcon) moonIcon.classList.remove('hidden');
       localStorage.setItem('theme', 'dark');
     }
+  });
+}
+
+// ======================
+// Search Functionality (Fixed)
+// ======================
+const searchInput = document.getElementById('searchInput');
+
+if (searchInput) {
+  searchInput.addEventListener('input', function () {
+    const searchTerm = this.value.toLowerCase().trim();
+
+    // Target the main content cards
+    const cards = document.querySelectorAll(
+      'main a, main article, main section a, .news-card'
+    );
+
+    let found = false;
+
+    cards.forEach(card => {
+      const text = card.innerText.toLowerCase();
+
+      if (searchTerm === '' || text.includes(searchTerm)) {
+        card.style.display = '';
+        found = true;
+      } else {
+        card.style.display = 'none';
+      }
+    });
+
+    // Optional: show message if nothing found
+    // (You can add this later if you want)
   });
 }

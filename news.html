@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Latest News | GoalZone</title>
+  <title>Latest News | GoalClone</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -32,48 +32,64 @@
   </style>
 </head>
 <body class="bg-gray-100 text-gray-900 dark:bg-brand-dark dark:text-white antialiased transition-colors duration-300">
+<!-- HEADER with Search -->
+<header class="bg-white dark:bg-black sticky top-0 z-50 border-b border-gray-200 dark:border-white/10">
+  <div class="max-w-7xl mx-auto px-4">
+    <div class="flex items-center justify-between h-14 md:h-16">
 
-  <!-- Header -->
-  <header class="bg-white dark:bg-black sticky top-0 z-50 border-b border-gray-200 dark:border-white/10">
-    <div class="max-w-7xl mx-auto px-4">
-      <div class="flex items-center justify-between h-14 md:h-16">
-        <div class="flex items-center gap-3">
-          <a href="index.html" class="text-2xl font-black tracking-tighter">GOAL</a>
-          <a href="#" class="hidden sm:flex items-center gap-1.5 text-sm font-medium hover:text-brand-primary transition">
-            <span class="w-2 h-2 bg-blue-500 rounded-full"></span> Live
-          </a>
-          <a href="#" class="hidden sm:flex items-center gap-1.5 text-sm font-medium border border-gray-300 dark:border-white/20 rounded-full px-3 py-1 hover:bg-gray-100 dark:hover:bg-white/10 transition">
-            Tickets
-          </a>
+      <!-- Left -->
+      <div class="flex items-center gap-3">
+        <a href="index.html" class="text-2xl font-black tracking-tighter">GOAL</a>
+        <a href="#" class="hidden sm:flex items-center gap-1.5 text-sm font-medium hover:text-brand-primary transition">
+          <span class="w-2 h-2 bg-blue-500 rounded-full"></span> Zone
+        </a>
+        <a href="#" class="hidden sm:flex items-center gap-1.5 text-sm font-medium border border-gray-300 dark:border-white/20 rounded-full px-3 py-1 hover:bg-gray-100 dark:hover:bg-white/10 transition">
+          Tickets
+        </a>
+      </div>
+
+      <!-- Right: Search + Menu -->
+      <div class="flex items-center gap-2">
+        <!-- Search Bar -->
+        <div class="relative hidden sm:block">
+          <input 
+            type="text" 
+            id="searchInput"
+            placeholder="Search news, teams..." 
+            class="bg-gray-100 dark:bg-brand-card border border-gray-200 dark:border-white/10 rounded-full py-1.5 pl-10 pr-4 text-sm w-48 md:w-64 focus:outline-none focus:ring-2 focus:ring-brand-primary"
+          >
+          <svg class="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+          </svg>
         </div>
 
-        <div class="flex items-center gap-1">
-          <button id="themeToggle" class="p-2 hover:bg-gray-100 dark:hover:bg-white/10 rounded-full transition">
-            <svg id="moonIcon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
-            </svg>
-            <svg id="sunIcon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
-            </svg>
-          </button>
-          <button id="menuBtn" class="p-2 hover:bg-gray-100 dark:hover:bg-white/10 rounded-full lg:hidden">
-            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-            </svg>
-          </button>
-        </div>
+        <!-- Mobile Search Icon -->
+        <button class="p-2 hover:bg-gray-100 dark:hover:bg-white/10 rounded-full sm:hidden">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+          </svg>
+        </button>
+
+        <!-- Menu Button -->
+        <button id="menuBtn" class="p-2 hover:bg-gray-100 dark:hover:bg-white/10 rounded-full lg:hidden">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
       </div>
     </div>
+  </div>
 
-    <div id="mobileMenu" class="hidden lg:hidden bg-white dark:bg-black border-t border-gray-200 dark:border-white/10">
-      <nav class="flex flex-col px-4 py-3 text-sm font-medium">
-        <a href="index.html" class="py-2.5 hover:text-brand-primary">Home</a>
-        <a href="news.html" class="py-2.5 text-brand-primary">News</a>
-        <a href="#" class="py-2.5 hover:text-brand-primary">Live Scores</a>
-        <a href="#" class="py-2.5 hover:text-brand-primary">Transfers</a>
-      </nav>
-    </div>
-  </header>
+  <!-- Mobile Menu -->
+  <div id="mobileMenu" class="hidden lg:hidden bg-white dark:bg-black border-t border-gray-200 dark:border-white/10">
+    <nav class="flex flex-col px-4 py-3 text-sm font-medium">
+      <a href="index.html" class="py-2.5 hover:text-brand-primary">Home</a>
+      <a href="news.html" class="py-2.5 hover:text-brand-primary">News</a>
+      <a href="#" class="py-2.5 hover:text-brand-primary">Live Scores</a>
+      <a href="#" class="py-2.5 hover:text-brand-primary">Transfers</a>
+    </nav>
+  </div>
+</header>
 
   <main class="max-w-7xl mx-auto px-4 py-8">
     <div class="mb-8">
@@ -82,18 +98,18 @@
     </div>
 
     <!-- Filters -->
-    <div class="flex flex-wrap gap-2 mb-8">
-      <button class="px-4 py-2 bg-brand-primary text-white text-sm font-semibold rounded-full">All</button>
-      <button class="px-4 py-2 bg-white dark:bg-brand-card text-sm font-medium rounded-full hover:bg-gray-100 dark:hover:bg-white/10 transition shadow-sm">Transfers</button>
-      <button class="px-4 py-2 bg-white dark:bg-brand-card text-sm font-medium rounded-full hover:bg-gray-100 dark:hover:bg-white/10 transition shadow-sm">Premier League</button>
-      <button class="px-4 py-2 bg-white dark:bg-brand-card text-sm font-medium rounded-full hover:bg-gray-100 dark:hover:bg-white/10 transition shadow-sm">Champions League</button>
-      <button class="px-4 py-2 bg-white dark:bg-brand-card text-sm font-medium rounded-full hover:bg-gray-100 dark:hover:bg-white/10 transition shadow-sm">La Liga</button>
-      <button class="px-4 py-2 bg-white dark:bg-brand-card text-sm font-medium rounded-full hover:bg-gray-100 dark:hover:bg-white/10 transition shadow-sm">World Cup</button>
+    <div class="flex flex-wrap gap-2 mb-8" id="filters">
+      <button data-filter="all" class="filter-btn px-4 py-2 bg-brand-primary text-white text-sm font-semibold rounded-full">All</button>
+      <button data-filter="transfers" class="filter-btn px-4 py-2 bg-white dark:bg-brand-card text-sm font-medium rounded-full hover:bg-gray-100 dark:hover:bg-white/10 transition shadow-sm">Transfers</button>
+      <button data-filter="premier-league" class="filter-btn px-4 py-2 bg-white dark:bg-brand-card text-sm font-medium rounded-full hover:bg-gray-100 dark:hover:bg-white/10 transition shadow-sm">Premier League</button>
+      <button data-filter="predictions" class="filter-btn px-4 py-2 bg-white dark:bg-brand-card text-sm font-medium rounded-full hover:bg-gray-100 dark:hover:bg-white/10 transition shadow-sm">Predictions</button>
+      <button data-filter="la-liga" class="filter-btn px-4 py-2 bg-white dark:bg-brand-card text-sm font-medium rounded-full hover:bg-gray-100 dark:hover:bg-white/10 transition shadow-sm">La Liga</button>
     </div>
 
     <!-- News Grid -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-      <a href="article.html" class="group bg-white dark:bg-brand-card rounded-xl overflow-hidden hover:ring-2 hover:ring-brand-primary/40 transition shadow-sm">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="newsGrid">
+
+      <a href="article.html" class="news-card group bg-white dark:bg-brand-card rounded-xl overflow-hidden hover:ring-2 hover:ring-brand-primary/40 transition shadow-sm" data-category="transfers">
         <div class="aspect-video overflow-hidden">
           <img src="images/golden.jpg" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="">
         </div>
@@ -105,7 +121,7 @@
         </div>
       </a>
 
-      <a href="article.html" class="group bg-white dark:bg-brand-card rounded-xl overflow-hidden hover:ring-2 hover:ring-brand-primary/40 transition shadow-sm">
+      <a href="article.html" class="news-card group bg-white dark:bg-brand-card rounded-xl overflow-hidden hover:ring-2 hover:ring-brand-primary/40 transition shadow-sm" data-category="premier-league">
         <div class="aspect-video overflow-hidden">
           <img src="images/calos.jpg" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="">
         </div>
@@ -117,7 +133,7 @@
         </div>
       </a>
 
-      <a href="article.html" class="group bg-white dark:bg-brand-card rounded-xl overflow-hidden hover:ring-2 hover:ring-brand-primary/40 transition shadow-sm">
+      <a href="article.html" class="news-card group bg-white dark:bg-brand-card rounded-xl overflow-hidden hover:ring-2 hover:ring-brand-primary/40 transition shadow-sm" data-category="predictions">
         <div class="aspect-video overflow-hidden">
           <img src="images/carrick.jpg" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="">
         </div>
@@ -129,7 +145,7 @@
         </div>
       </a>
 
-      <a href="article.html" class="group bg-white dark:bg-brand-card rounded-xl overflow-hidden hover:ring-2 hover:ring-brand-primary/40 transition shadow-sm">
+      <a href="article.html" class="news-card group bg-white dark:bg-brand-card rounded-xl overflow-hidden hover:ring-2 hover:ring-brand-primary/40 transition shadow-sm" data-category="premier-league">
         <div class="aspect-video overflow-hidden">
           <img src="images/ian.jpg" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="">
         </div>
@@ -141,7 +157,7 @@
         </div>
       </a>
 
-      <a href="article.html" class="group bg-white dark:bg-brand-card rounded-xl overflow-hidden hover:ring-2 hover:ring-brand-primary/40 transition shadow-sm">
+      <a href="article.html" class="news-card group bg-white dark:bg-brand-card rounded-xl overflow-hidden hover:ring-2 hover:ring-brand-primary/40 transition shadow-sm" data-category="la-liga">
         <div class="aspect-video overflow-hidden">
           <img src="images/canelo.jpg" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="">
         </div>
@@ -153,7 +169,7 @@
         </div>
       </a>
 
-      <a href="article.html" class="group bg-white dark:bg-brand-card rounded-xl overflow-hidden hover:ring-2 hover:ring-brand-primary/40 transition shadow-sm">
+      <a href="article.html" class="news-card group bg-white dark:bg-brand-card rounded-xl overflow-hidden hover:ring-2 hover:ring-brand-primary/40 transition shadow-sm" data-category="premier-league">
         <div class="aspect-video overflow-hidden">
           <img src="images/boot.jpg" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="">
         </div>
@@ -165,15 +181,9 @@
         </div>
       </a>
     </div>
-
-    <div class="text-center mt-10">
-      <button class="px-8 py-3 bg-white dark:bg-brand-card hover:bg-gray-100 dark:hover:bg-white/10 border border-gray-200 dark:border-white/10 rounded-full font-semibold transition shadow-sm">
-        Load more stories
-      </button>
-    </div>
   </main>
 
-  <!-- Footer -->
+  <!-- FOOTER -->
   <footer class="bg-white dark:bg-black border-t border-gray-200 dark:border-white/10 mt-12">
     <div class="max-w-7xl mx-auto px-4 py-10">
       <div class="flex justify-center mb-8">
@@ -181,16 +191,25 @@
           <span class="text-3xl font-black tracking-tighter">GOAL</span>
         </div>
       </div>
-      <div class="flex flex-wrap justify-center gap-x-4 gap-y-2 text-sm text-gray-600 dark:text-gray-400 mb-6">
-        <a href="#" class="hover:text-brand-primary">Contact Us</a>
+      <div class="flex flex-wrap justify-center items-center gap-x-4 gap-y-3 text-sm text-gray-600 dark:text-gray-400 mb-6">
+        <a href="#" class="hover:text-brand-primary transition">Contact Us</a>
         <span>|</span>
-        <a href="#" class="hover:text-brand-primary">Terms of Service</a>
+        <a href="#" class="hover:text-brand-primary transition">Terms of Service</a>
         <span>|</span>
-        <a href="#" class="hover:text-brand-primary">Privacy policy</a>
+        <a href="#" class="hover:text-brand-primary transition">Privacy policy</a>
         <span>|</span>
-        <a href="#" class="hover:text-brand-primary">Careers</a>
+        <a href="#" class="hover:text-brand-primary transition">Careers</a>
         <span>|</span>
-        <a href="#" class="hover:text-brand-primary">Goal Live</a>
+        <a href="#" class="hover:text-brand-primary transition">Goal Live</a>
+
+        <button id="themeToggle" class="ml-2 p-1.5 hover:bg-gray-200 dark:hover:bg-white/10 rounded-full transition">
+          <svg id="moonIcon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+          </svg>
+          <svg id="sunIcon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+          </svg>
+        </button>
       </div>
       <div class="text-center text-xs text-gray-500">
         Copyright © 2026 GoalZone. Educational project inspired by GOAL.com.
@@ -199,5 +218,6 @@
   </footer>
 
   <script src="script.js"></script>
+
 </body>
 </html>

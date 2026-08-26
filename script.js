@@ -41,33 +41,41 @@ if (themeToggle) {
 }
 
 // ======================
-// Search Functionality (Fixed)
+// Profile Dropdown
+// ======================
+const profileBtn = document.getElementById('profileBtn');
+const profileMenu = document.getElementById('profileMenu');
+
+if (profileBtn && profileMenu) {
+  profileBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    profileMenu.classList.toggle('hidden');
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!profileBtn.contains(e.target) && !profileMenu.contains(e.target)) {
+      profileMenu.classList.add('hidden');
+    }
+  });
+}
+
+// ======================
+// Search Functionality
 // ======================
 const searchInput = document.getElementById('searchInput');
 
 if (searchInput) {
   searchInput.addEventListener('input', function () {
     const searchTerm = this.value.toLowerCase().trim();
-
-    // Target the main content cards
-    const cards = document.querySelectorAll(
-      'main a, main article, main section a, .news-card'
-    );
-
-    let found = false;
+    const cards = document.querySelectorAll('main a, main article, .news-card');
 
     cards.forEach(card => {
       const text = card.innerText.toLowerCase();
-
       if (searchTerm === '' || text.includes(searchTerm)) {
         card.style.display = '';
-        found = true;
       } else {
         card.style.display = 'none';
       }
     });
-
-    // Optional: show message if nothing found
-    // (You can add this later if you want)
   });
 }

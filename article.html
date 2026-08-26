@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mbappe's Nike split signals seismic shift for boot deals | GoalZone</title>
+  <title>Mbappe's Nike split | GoalZone</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
@@ -33,141 +33,104 @@
 </head>
 <body class="bg-gray-100 text-gray-900 dark:bg-brand-dark dark:text-white antialiased transition-colors duration-300">
 
-  <!-- HEADER with Search -->
-<header class="bg-white dark:bg-black sticky top-0 z-50 border-b border-gray-200 dark:border-white/10">
-  <div class="max-w-7xl mx-auto px-4">
-    <div class="flex items-center justify-between h-14 md:h-16">
-
-      <!-- Left -->
-      <div class="flex items-center gap-3">
-        <a href="index.html" class="text-2xl font-black tracking-tighter">GOAL</a>
-        <a href="#" class="hidden sm:flex items-center gap-1.5 text-sm font-medium hover:text-brand-primary transition">
-          <span class="w-2 h-2 bg-blue-500 rounded-full"></span> Zone
-        </a>
-        <a href="#" class="hidden sm:flex items-center gap-1.5 text-sm font-medium border border-gray-300 dark:border-white/20 rounded-full px-3 py-1 hover:bg-gray-100 dark:hover:bg-white/10 transition">
-          Tickets
-        </a>
-      </div>
-
-      <!-- Right: Search + Menu -->
-      <div class="flex items-center gap-2">
-        <!-- Search Bar -->
-        <div class="relative hidden sm:block">
-          <input 
-            type="text" 
-            id="searchInput"
-            placeholder="Search news, teams..." 
-            class="bg-gray-100 dark:bg-brand-card border border-gray-200 dark:border-white/10 rounded-full py-1.5 pl-10 pr-4 text-sm w-48 md:w-64 focus:outline-none focus:ring-2 focus:ring-brand-primary"
-          >
-          <svg class="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
-          </svg>
+  <!-- HEADER -->
+  <header class="bg-white dark:bg-black sticky top-0 z-50 border-b border-gray-200 dark:border-white/10">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="flex items-center justify-between h-14 md:h-16">
+        <div class="flex items-center gap-3">
+          <a href="index.html" class="text-2xl font-black tracking-tighter">GOAL</a>
+          <a href="#" class="hidden sm:flex items-center gap-1.5 text-sm font-medium hover:text-brand-primary transition">
+            <span class="w-2 h-2 bg-blue-500 rounded-full"></span> Zone
+          </a>
+          <a href="#" class="hidden sm:flex items-center gap-1.5 text-sm font-medium border border-gray-300 dark:border-white/20 rounded-full px-3 py-1 hover:bg-gray-100 dark:hover:bg-white/10 transition">
+            Tickets
+          </a>
         </div>
 
-        <!-- Mobile Search Icon -->
-        <button class="p-2 hover:bg-gray-100 dark:hover:bg-white/10 rounded-full sm:hidden">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
-          </svg>
-        </button>
+        <div class="flex items-center gap-2 relative">
+          <div class="relative hidden sm:block">
+            <input type="text" id="searchInput" placeholder="Search news, teams..." 
+              class="bg-gray-100 dark:bg-brand-card border border-gray-200 dark:border-white/10 rounded-full py-1.5 pl-10 pr-4 text-sm w-48 md:w-64 focus:outline-none focus:ring-2 focus:ring-brand-primary">
+            <svg class="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+            </svg>
+          </div>
 
-        <!-- Menu Button -->
-        <button id="menuBtn" class="p-2 hover:bg-gray-100 dark:hover:bg-white/10 rounded-full lg:hidden">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
-          </svg>
-        </button>
+          <!-- Profile -->
+          <div class="relative">
+            <button id="profileBtn" class="p-2 hover:bg-gray-100 dark:hover:bg-white/10 rounded-full transition">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+              </svg>
+            </button>
+            <div id="profileMenu" class="hidden absolute right-0 mt-2 w-48 bg-white dark:bg-brand-card border border-gray-200 dark:border-white/10 rounded-xl shadow-lg overflow-hidden z-50">
+              <a href="#" class="block px-4 py-3 text-sm hover:bg-gray-100 dark:hover:bg-white/5 transition">Log in</a>
+              <a href="#" class="block px-4 py-3 text-sm hover:bg-gray-100 dark:hover:bg-white/5 transition">Sign up</a>
+              <div class="border-t border-gray-200 dark:border-white/10"></div>
+              <a href="#" class="block px-4 py-3 text-sm hover:bg-gray-100 dark:hover:bg-white/5 transition">My Profile</a>
+            </div>
+          </div>
+
+          <button id="menuBtn" class="p-2 hover:bg-gray-100 dark:hover:bg-white/10 rounded-full lg:hidden">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+          </button>
+        </div>
       </div>
     </div>
-  </div>
 
-  <!-- Mobile Menu -->
-  <div id="mobileMenu" class="hidden lg:hidden bg-white dark:bg-black border-t border-gray-200 dark:border-white/10">
-    <nav class="flex flex-col px-4 py-3 text-sm font-medium">
-      <a href="index.html" class="py-2.5 hover:text-brand-primary">Home</a>
-      <a href="news.html" class="py-2.5 hover:text-brand-primary">News</a>
-      <a href="#" class="py-2.5 hover:text-brand-primary">Live Scores</a>
-      <a href="#" class="py-2.5 hover:text-brand-primary">Transfers</a>
-    </nav>
-  </div>
-</header>
+    <div id="mobileMenu" class="hidden lg:hidden bg-white dark:bg-black border-t border-gray-200 dark:border-white/10">
+      <nav class="flex flex-col px-4 py-3 text-sm font-medium">
+        <a href="index.html" class="py-2.5 hover:text-brand-primary">Home</a>
+        <a href="news.html" class="py-2.5 hover:text-brand-primary">News</a>
+        <a href="#" class="py-2.5 hover:text-brand-primary">Live Scores</a>
+        <a href="#" class="py-2.5 hover:text-brand-primary">Transfers</a>
+      </nav>
+    </div>
+  </header>
 
-  <!-- MAIN -->
   <main class="max-w-3xl mx-auto px-4 py-8">
-
-    <!-- Category -->
     <div class="mb-4 flex items-center gap-2 text-sm">
       <a href="news.html" class="font-bold text-brand-primary hover:underline">TRANSFERS</a>
       <span class="text-gray-500">•</span>
       <span class="text-gray-500 dark:text-gray-400">Kylian Mbappe</span>
     </div>
 
-    <!-- Headline -->
     <h1 class="text-3xl md:text-4xl font-extrabold leading-tight mb-6">
       Mbappe's Nike split signals seismic shift for boot deals
     </h1>
 
-    <!-- Meta -->
     <div class="flex items-center gap-3 text-sm text-gray-500 dark:text-gray-400 mb-6">
       <div class="w-10 h-10 bg-brand-primary rounded-full flex items-center justify-center text-sm font-bold text-white">FR</div>
       <div>
         <p class="text-gray-900 dark:text-white font-medium">By Fabrizo Romano</p>
-        <p>July 20, 2026 • 12:00 WAT</p>
+        <p>July 3, 2026 • 12:00 FRI</p>
       </div>
     </div>
 
-   
-
-    <!-- Main Image -->
     <figure class="mb-8">
       <img src="images/golden.jpg" alt="Kylian Mbappe" class="w-full rounded-xl object-cover max-h-[480px]">
       <figcaption class="text-xs text-gray-500 mt-2 text-center">Kylian Mbappe could be about to change the boot industry</figcaption>
     </figure>
 
-    <!-- Article Content -->
     <article class="space-y-5 leading-relaxed">
       <p class="text-xl font-medium text-gray-900 dark:text-white">
         Kylian Mbappe is on the verge of leaving Nike in a move that would send shockwaves through the football boot market.
       </p>
       <p class="text-gray-700 dark:text-gray-300">
-        According to multiple reports, the Real Madrid and France superstar is finalising a deal with an emerging brand that has never before worked with a player of his magnitude. The agreement is expected to include equity options.
+        According to multiple reports, the Real Madrid and France superstar is finalising a deal with an emerging brand that has never before worked with a player of his magnitude.
       </p>
       <p class="text-gray-700 dark:text-gray-300">
-        This would mark one of the most significant boot deal shifts in modern football. For decades, Nike and Adidas have dominated the elite player market.
+        This would mark one of the most significant boot deal shifts in modern football.
       </p>
       <h2 class="text-2xl font-bold text-gray-900 dark:text-white mt-10">Why this matters</h2>
       <p class="text-gray-700 dark:text-gray-300">
-        Mbappe has been with Nike since his teenage years at Monaco. Walking away now, at the peak of his powers, signals a new era where players have more leverage than ever before.
-      </p>
-      <p class="text-gray-700 dark:text-gray-300">
-        Industry experts believe this could accelerate the rise of smaller brands and force the traditional giants to offer more creative packages.
+        Mbappe has been with Nike since his teenage years at Monaco. Walking away now signals a new era where players have more leverage than ever before.
       </p>
     </article>
 
-   
-
-    <!-- Related Stories -->
-    <section class="mt-16 pt-10 border-t border-gray-200 dark:border-white/10">
-      <h2 class="text-xl font-bold mb-6">Related Stories</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
-        <a href="article.html" class="group flex gap-4">
-          <img src="images/calos.jpg" class="w-28 h-20 object-cover rounded-lg flex-shrink-0" alt="">
-          <div>
-            <h3 class="font-semibold group-hover:text-brand-primary transition line-clamp-2">Why Carlos Baleba is perfect for Man United</h3>
-            <p class="text-xs text-gray-500 mt-1">2 hours ago</p>
-          </div>
-        </a>
-        <a href="article.html" class="group flex gap-4">
-          <img src="images/carrick.jpg" class="w-28 h-20 object-cover rounded-lg flex-shrink-0" alt="">
-          <div>
-            <h3 class="font-semibold group-hover:text-brand-primary transition line-clamp-2">Bold predictions for the 2026-27 season</h3>
-            <p class="text-xs text-gray-500 mt-1">3 hours ago</p>
-          </div>
-        </a>
-      </div>
-    </section>
-  </main>
-
+    </main>
   <!-- FOOTER -->
   <footer class="bg-white dark:bg-black border-t border-gray-200 dark:border-white/10 mt-12">
     <div class="max-w-7xl mx-auto px-4 py-10">
@@ -176,7 +139,6 @@
           <span class="text-3xl font-black tracking-tighter">GOAL</span>
         </div>
       </div>
-
       <div class="flex flex-wrap justify-center items-center gap-x-4 gap-y-3 text-sm text-gray-600 dark:text-gray-400 mb-6">
         <a href="#" class="hover:text-brand-primary transition">Contact Us</a>
         <span>|</span>
@@ -185,8 +147,6 @@
         <a href="#" class="hover:text-brand-primary transition">Privacy policy</a>
         <span>|</span>
         <a href="#" class="hover:text-brand-primary transition">Careers</a>
-        <span>|</span>
-        <a href="#" class="hover:text-brand-primary transition">Goal Live</a>
 
         <button id="themeToggle" class="ml-2 p-1.5 hover:bg-gray-200 dark:hover:bg-white/10 rounded-full transition">
           <svg id="moonIcon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -197,9 +157,8 @@
           </svg>
         </button>
       </div>
-
       <div class="text-center text-xs text-gray-500">
-        Copyright © 2026 GoalClone. Educational project inspired by GOAL.com.
+        Copyright © 2026 GoalZone. Educational project inspired by GOAL.com.
       </div>
     </div>
   </footer>

@@ -20,7 +20,7 @@
         }
       }
     }
-  </script>
+  </script>                  
   <style>
     .line-clamp-2 {
       display: -webkit-box;
@@ -29,49 +29,80 @@
       line-clamp: 2;
       overflow: hidden;
     }
+
     @keyframes ticker {
       0% { transform: translateX(100%); }
       100% { transform: translateX(-100%); }
     }
+
     .animate-ticker {
       display: inline-block;
       animation: ticker 28s linear infinite;
     }
+
+    html,
+    body {
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+
+    img,
+    video {
+      max-width: 100%;
+    }
   </style>
 </head>
-<body class="bg-gray-100 text-gray-900 dark:bg-brand-dark dark:text-white antialiased transition-colors duration-300">
+
+<body class="bg-gray-100 text-gray-900 dark:bg-brand-dark dark:text-white antialiased transition-colors duration-300 overflow-x-hidden">
 
   <!-- HEADER -->
   <header class="bg-white dark:bg-black sticky top-0 z-50 border-b border-gray-200 dark:border-white/10">
     <div class="max-w-7xl mx-auto px-4">
       <div class="flex items-center justify-between h-14 md:h-16">
-        <div class="flex items-center gap-3">
-          <a href="index.html" class="text-2xl font-black tracking-tighter">GOAL</a>
-          <a href="#" class="hidden sm:flex items-center gap-1.5 text-sm font-medium hover:text-brand-primary transition">
-            <span class="w-2 h-2 bg-blue-500 rounded-full"></span> ZONE
+
+        <div class="flex items-center gap-3 min-w-0">
+          <a href="index.html" class="text-2xl font-black tracking-tighter flex-shrink-0">GOAL</a>
+
+          <a href="#" class="hidden sm:flex items-center gap-1.5 text-sm font-medium hover:text-brand-primary transition flex-shrink-0">
+            <span class="w-2 h-2 bg-blue-500 rounded-full"></span>
+            ZONE
           </a>
-          <a href="#" class="hidden sm:flex items-center gap-1.5 text-sm font-medium border border-gray-300 dark:border-white/20 rounded-full px-3 py-1 hover:bg-gray-100 dark:hover:bg-white/10 transition">
+
+          <a href="#" class="hidden sm:flex items-center gap-1.5 text-sm font-medium border border-gray-300 dark:border-white/20 rounded-full px-3 py-1 hover:bg-gray-100 dark:hover:bg-white/10 transition flex-shrink-0">
             Tickets
           </a>
         </div>
 
-        <div class="flex items-center gap-2 relative">
+        <div class="flex items-center gap-2 relative flex-shrink-0">
+
           <div class="relative hidden sm:block">
-            <input type="text" id="searchInput" placeholder="Search news, teams..." 
-              class="bg-gray-100 dark:bg-brand-card border border-gray-200 dark:border-white/10 rounded-full py-1.5 pl-10 pr-4 text-sm w-48 md:w-64 focus:outline-none focus:ring-2 focus:ring-brand-primary">
-            <svg class="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+            <input
+              type="text"
+              id="searchInput"
+              placeholder="Search news, teams..."
+              class="bg-gray-100 dark:bg-brand-card border border-gray-200 dark:border-white/10 rounded-full py-1.5 pl-10 pr-4 text-sm w-48 md:w-64 focus:outline-none focus:ring-2 focus:ring-brand-primary"
+            >
+
+            <svg class="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
             </svg>
           </div>
-          
+
           <!-- Profile -->
           <div class="relative">
             <button id="profileBtn" class="p-2 hover:bg-gray-100 dark:hover:bg-white/10 rounded-full transition">
               <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
               </svg>
             </button>
-            <div id="profileMenu" class="hidden absolute right-0 mt-2 w-48 bg-white dark:bg-brand-card border border-gray-200 dark:border-white/10 rounded-xl shadow-lg overflow-hidden z-50">
+
+            <div id="profileMenu"
+              class="hidden absolute right-0 mt-2 w-48 bg-white dark:bg-brand-card border border-gray-200 dark:border-white/10 rounded-xl shadow-lg overflow-hidden z-50">
               <a href="#" class="block px-4 py-3 text-sm hover:bg-gray-100 dark:hover:bg-white/5 transition">Log in</a>
               <a href="#" class="block px-4 py-3 text-sm hover:bg-gray-100 dark:hover:bg-white/5 transition">Sign up</a>
               <div class="border-t border-gray-200 dark:border-white/10"></div>
@@ -81,22 +112,37 @@
 
           <button id="menuBtn" class="p-2 hover:bg-gray-100 dark:hover:bg-white/10 rounded-full lg:hidden">
             <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"/>
             </svg>
           </button>
+
         </div>
       </div>
     </div>
-     <div class="bg-brand-primary text-white text-sm overflow-hidden">
-    <div class="max-w-7xl mx-auto px-4 flex items-center h-9">
-      <span class="font-bold bg-black/20 px-3 py-1 rounded text-xs mr-4 flex-shrink-0">BREAKING</span>
-      <div class="overflow-hidden whitespace-nowrap flex-1">
-        <div class="animate-ticker">
-          Mbappe close to leaving Nike &nbsp;&nbsp;•&nbsp;&nbsp; Man United push for Baleba &nbsp;&nbsp;•&nbsp;&nbsp; Arsenal open talks with new striker &nbsp;&nbsp;•&nbsp;&nbsp; Barcelona confirm Cancelo presentation &nbsp;&nbsp;•&nbsp;&nbsp; Real Madrid prepare new contract for Vinicius
+
+    <div class="bg-brand-primary text-white text-sm overflow-hidden w-full">
+      <div class="max-w-7xl mx-auto px-4 flex items-center h-9">
+        <span class="font-bold bg-black/20 px-3 py-1 rounded text-xs mr-4 flex-shrink-0">
+          BREAKING
+        </span>
+
+        <div class="overflow-hidden whitespace-nowrap flex-1 min-w-0">
+          <div class="animate-ticker">
+            Mbappe close to leaving Nike
+            &nbsp;&nbsp;•&nbsp;&nbsp;
+            Man United push for Baleba
+            &nbsp;&nbsp;•&nbsp;&nbsp;
+            Arsenal open talks with new striker
+            &nbsp;&nbsp;•&nbsp;&nbsp;
+            Barcelona confirm Cancelo presentation
+            &nbsp;&nbsp;•&nbsp;&nbsp;
+            Real Madrid prepare new contract for Vinicius
+          </div>
         </div>
       </div>
     </div>
-  </div>
+
     <div id="mobileMenu" class="hidden lg:hidden bg-white dark:bg-black border-t border-gray-200 dark:border-white/10">
       <nav class="flex flex-col px-4 py-3 text-sm font-medium">
         <a href="index.html" class="py-2.5 hover:text-brand-primary">Home</a>
@@ -106,19 +152,39 @@
       </nav>
     </div>
   </header>
-  <!-- BREAKING NEWS TICKER -->    
-     <div class="aspect-[16/9] md:aspect-[2.1/1] relative">
-              <img src="images/golden.jpg" alt="Featured" class="w-full h-full object-cover group-hover:scale-[1.02] transition duration-500">
+
+  <!-- BREAKING NEWS TICKER -->
+  <main class="max-w-7xl mx-auto px-4 py-6 overflow-hidden">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+
+      <!-- MAIN CONTENT -->
+      <div class="lg:col-span-8 min-w-0 space-y-6">
+
+        <!-- Featured -->
+        <a href="article.html" class="group block min-w-0">
+          <article class="bg-white dark:bg-brand-card rounded-xl overflow-hidden shadow-sm">
+            <div class="aspect-[16/9] md:aspect-[2.1/1] relative">
+              <img
+                src="images/golden.jpg"
+                alt="Featured"
+                class="w-full h-full object-cover group-hover:scale-[1.02] transition duration-500"
+              >
+
               <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
-              <div class="absolute bottom-0 left-0 p-4 md:p-7 text-white">
+
+              <div class="absolute bottom-0 left-0 p-4 md:p-7 text-white max-w-full">
                 <h1 class="text-xl md:text-3xl lg:text-4xl font-extrabold leading-tight group-hover:text-brand-primary transition">
                   Mbappe's Nike split signals seismic shift for boot deals
                 </h1>
+
                 <p class="text-gray-300 text-sm mt-2 max-w-2xl line-clamp-2 hidden md:block">
                   The Real Madrid forward is set to leave Nike for an emerging brand.
                 </p>
+
                 <div class="flex items-center gap-2 mt-3 text-xs text-gray-400">
-                  <span>3 hour ago</span> • <span>Aadam Patel</span>
+                  <span>3 hour ago</span>
+                  •
+                  <span>Aadam Patel</span>
                 </div>
               </div>
             </div>
@@ -127,150 +193,299 @@
 
         <!-- Secondary -->
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          <a href="article.html" class="group">
+
+          <a href="article.html" class="group min-w-0">
             <article class="bg-white dark:bg-brand-card rounded-xl overflow-hidden h-full shadow-sm">
               <div class="aspect-video relative overflow-hidden">
-                <img src="images/calos.jpg" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="">
+                <img
+                  src="images/calos.jpg"
+                  class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+                  alt="carlos Baleba"
+                >
+
                 <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+
                 <div class="absolute bottom-3 left-3 right-3 text-white">
                   <span class="text-xs font-bold text-brand-primary">MAN UNITED</span>
-                  <h3 class="font-bold text-sm md:text-base mt-1 group-hover:text-brand-primary transition">Why Carlos Baleba is exactly what Man United need</h3>
+
+                  <h3 class="font-bold text-sm md:text-base mt-1 group-hover:text-brand-primary transition">
+                    Why Carlos Baleba is exactly what Man United need
+                  </h3>
                 </div>
               </div>
             </article>
           </a>
-          <a href="article.html" class="group">
+
+          <a href="article.html" class="group min-w-0">
             <article class="bg-white dark:bg-brand-card rounded-xl overflow-hidden h-full shadow-sm">
               <div class="aspect-video relative overflow-hidden">
-                <img src="images/carrick.jpg" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" alt="">
+                <img
+                  src="images/carrick.jpg"
+                  class="w-full h-full object-cover group-hover:scale-105 transition duration-500"
+                  alt="Micheal Carrick"
+                >
+
                 <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+
                 <div class="absolute bottom-3 left-3 right-3 text-white">
                   <span class="text-xs font-bold text-brand-primary">PREDICTIONS</span>
-                  <h3 class="font-bold text-sm md:text-base mt-1 group-hover:text-brand-primary transition">Carrick gone by Christmas? Bold predictions</h3>
+
+                  <h3 class="font-bold text-sm md:text-base mt-1 group-hover:text-brand-primary transition">
+                    Carrick gone by Christmas? Bold predictions
+                  </h3>
                 </div>
               </div>
             </article>
           </a>
+
         </div>
 
         <!-- Latest News -->
-        <section>
+        <section class="min-w-0">
           <div class="flex items-center justify-between mb-4">
             <h2 class="text-lg font-bold flex items-center gap-2">
               <span class="w-1 h-5 bg-brand-primary rounded-full"></span>
               Latest News
             </h2>
-            <a href="news.html" class="text-sm text-brand-primary hover:underline">View all</a>
+
+            <a href="news.html" class="text-sm text-brand-primary hover:underline">
+              View all
+            </a>
           </div>
+
           <div class="space-y-3">
-            <a href="article.html" class="flex gap-3 p-3 bg-white dark:bg-brand-card rounded-xl hover:bg-gray-50 dark:hover:bg-white/5 transition group shadow-sm">
-              <img src="images/ian.jpg" class="w-24 h-16 object-cover rounded-lg flex-shrink-0" alt="">
-              <div>
+
+            <a href="article.html"
+              class="flex gap-3 p-3 bg-white dark:bg-brand-card rounded-xl hover:bg-gray-50 dark:hover:bg-white/5 transition group shadow-sm min-w-0">
+
+              <img
+                src="images/ian.jpg"
+                class="w-24 h-16 object-cover rounded-lg flex-shrink-0"
+                alt="Ian Wright"
+              >
+
+              <div class="min-w-0 flex-1">
                 <span class="text-xs font-bold text-brand-primary">ARSENAL</span>
-                <h3 class="font-semibold text-sm mt-0.5 group-hover:text-brand-primary transition line-clamp-2">Ian Wright fears financial pressure could force Arsenal to sell Lewis-Skelly</h3>
-                <p class="text-xs text-gray-500 mt-1">14 mins ago</p>
+
+                <h3 class="font-semibold text-sm mt-0.5 group-hover:text-brand-primary transition line-clamp-2">
+                  Ian Wright fears financial pressure could force Arsenal to sell Lewis-Skelly
+                </h3>
+
+                <p class="text-xs text-gray-500 mt-1">
+                  14 mins ago
+                </p>
               </div>
             </a>
-            <a href="article.html" class="flex gap-3 p-3 bg-white dark:bg-brand-card rounded-xl hover:bg-gray-50 dark:hover:bg-white/5 transition group shadow-sm">
-              <img src="images/canelo.jpg" class="w-24 h-16 object-cover rounded-lg flex-shrink-0" alt="">
-              <div>
+
+            <a href="article.html"
+              class="flex gap-3 p-3 bg-white dark:bg-brand-card rounded-xl hover:bg-gray-50 dark:hover:bg-white/5 transition group shadow-sm min-w-0">
+
+              <img
+                src="images/canelo.jpg"
+                class="w-24 h-16 object-cover rounded-lg flex-shrink-0"
+                alt="Joa Cancelo"
+              >
+
+              <div class="min-w-0 flex-1">
                 <span class="text-xs font-bold text-brand-primary">BARCELONA</span>
-                <h3 class="font-semibold text-sm mt-0.5 group-hover:text-brand-primary transition line-clamp-2">Frustrated Cancelo storms down tunnel after presentation snub</h3>
-                <p class="text-xs text-gray-500 mt-1">30 mins ago</p>
+
+                <h3 class="font-semibold text-sm mt-0.5 group-hover:text-brand-primary transition line-clamp-2">
+                  Frustrated Cancelo storms down tunnel after presentation snub
+                </h3>
+
+                <p class="text-xs text-gray-500 mt-1">
+                  30 mins ago
+                </p>
               </div>
             </a>
-            
+
           </div>
         </section>
 
-        <!-- Team News -->
-        <section>
-          <div class="flex items-center justify-between mb-5">
-            <h2 class="text-lg font-bold flex items-center gap-2">
-              <span class="w-1 h-5 bg-brand-primary rounded-full"></span>
-              Team News
-            </h2>
-            <a href="#" class="text-sm text-brand-primary hover:underline">View all teams</a>
-          </div>
-          <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-            <a href="#" class="group bg-white dark:bg-brand-card rounded-xl p-4 hover:ring-2 hover:ring-brand-primary/40 transition shadow-sm">
-              <div class="flex items-center gap-3 mb-3">
-                <img src="logos/man-united.png" class="w-10 h-10 object-contain" alt="">
-                <div>
-                  <h3 class="font-bold text-sm group-hover:text-brand-primary transition">Man United</h3>
-                  <p class="text-xs text-gray-500">Premier League</p>
-                </div>
-              </div>
-              <p class="text-xs text-gray-600 dark:text-gray-400 line-clamp-2">Baleba transfer latest + Rashford injury update</p>
-            </a>
-            <a href="#" class="group bg-white dark:bg-brand-card rounded-xl p-4 hover:ring-2 hover:ring-brand-primary/40 transition shadow-sm">
-              <div class="flex items-center gap-3 mb-3">
-                <img src="logos/liverpool.png" class="w-10 h-10 object-contain" alt="">
-                <div>
-                  <h3 class="font-bold text-sm group-hover:text-brand-primary transition">Liverpool</h3>
-                  <p class="text-xs text-gray-500">Premier League</p>
-                </div>
-              </div>
-              <p class="text-xs text-gray-600 dark:text-gray-400 line-clamp-2">Slot's plans for the new season revealed</p>
-            </a>
-            <a href="#" class="group bg-white dark:bg-brand-card rounded-xl p-4 hover:ring-2 hover:ring-brand-primary/40 transition shadow-sm">
-              <div class="flex items-center gap-3 mb-3">
-                <img src="logos/chelsea.png" class="w-10 h-10 object-contain" alt="">
-                <div>
-                  <h3 class="font-bold text-sm group-hover:text-brand-primary transition">Chelsea</h3>
-                  <p class="text-xs text-gray-500">Premier League</p>
-                </div>
-              </div>
-              <p class="text-xs text-gray-600 dark:text-gray-400 line-clamp-2">New signing update + pre-season tour</p>
-            </a>
-            <a href="#" class="group bg-white dark:bg-brand-card rounded-xl p-4 hover:ring-2 hover:ring-brand-primary/40 transition shadow-sm">
-              <div class="flex items-center gap-3 mb-3">
-                <img src="logos/man-city.png" class="w-10 h-10 object-contain" alt="">
-                <div>
-                  <h3 class="font-bold text-sm group-hover:text-brand-primary transition">Man City</h3>
-                  <p class="text-xs text-gray-500">Premier League</p>
-                </div>
-              </div>
-              <p class="text-xs text-gray-600 dark:text-gray-400 line-clamp-2">Haaland contract talks + squad news</p>
-            </a>
-          </div>
-        </section>
+       <!-- Team News -->
+<section class="min-w-0">
+  <div class="flex items-center justify-between mb-5">
+    <h2 class="text-lg font-bold flex items-center gap-2">
+      <span class="w-1 h-5 bg-brand-primary rounded-full"></span>
+      Team News
+    </h2>
+    <a href="#" class="text-sm text-brand-primary hover:underline">
+      View all teams
+    </a>
+  </div>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+
+    <!-- Man United -->
+    <a href="#" class="group bg-white dark:bg-brand-card rounded-xl p-4 hover:ring-2 hover:ring-brand-primary/40 transition shadow-sm min-w-0">
+      <div class="flex items-center gap-3 mb-3">
+        <img src="logos/man-united.png" class="w-10 h-10 object-contain flex-shrink-0" alt="Manchester United">
+        <div class="min-w-0">
+          <h3 class="font-bold text-sm group-hover:text-brand-primary transition">Man United</h3>
+          <p class="text-xs text-gray-500">Premier League</p>
+        </div>
+      </div>
+      <p class="text-xs text-gray-600 dark:text-gray-400 line-clamp-2">
+        Baleba transfer latest + Rashford injury update
+      </p>
+      <p class="text-[11px] text-gray-400 mt-2">Updated 2h ago</p>
+    </a>
+
+    <!-- Liverpool -->
+    <a href="#" class="group bg-white dark:bg-brand-card rounded-xl p-4 hover:ring-2 hover:ring-brand-primary/40 transition shadow-sm min-w-0">
+      <div class="flex items-center gap-3 mb-3">
+        <img src="logos/liverpool.png" class="w-10 h-10 object-contain flex-shrink-0" alt="Liverpool">
+        <div class="min-w-0">
+          <h3 class="font-bold text-sm group-hover:text-brand-primary transition">Liverpool</h3>
+          <p class="text-xs text-gray-500">Premier League</p>
+        </div>
+      </div>
+      <p class="text-xs text-gray-600 dark:text-gray-400 line-clamp-2">
+        Slot's plans for the new season revealed
+      </p>
+      <p class="text-[11px] text-gray-400 mt-2">Updated 4h ago</p>
+    </a>
+
+    <!-- Chelsea -->
+    <a href="#" class="group bg-white dark:bg-brand-card rounded-xl p-4 hover:ring-2 hover:ring-brand-primary/40 transition shadow-sm min-w-0">
+      <div class="flex items-center gap-3 mb-3">
+        <img src="logos/chelsea.png" class="w-10 h-10 object-contain flex-shrink-0" alt="Chelsea">
+        <div class="min-w-0">
+          <h3 class="font-bold text-sm group-hover:text-brand-primary transition">Chelsea</h3>
+          <p class="text-xs text-gray-500">Premier League</p>
+        </div>
+      </div>
+      <p class="text-xs text-gray-600 dark:text-gray-400 line-clamp-2">
+        New signing update + pre-season tour
+      </p>
+      <p class="text-[11px] text-gray-400 mt-2">Updated 5h ago</p>
+    </a>
+
+    <!-- Man City -->
+    <a href="#" class="group bg-white dark:bg-brand-card rounded-xl p-4 hover:ring-2 hover:ring-brand-primary/40 transition shadow-sm min-w-0">
+      <div class="flex items-center gap-3 mb-3">
+        <img src="logos/man-city.png" class="w-10 h-10 object-contain flex-shrink-0" alt="Manchester City">
+        <div class="min-w-0">
+          <h3 class="font-bold text-sm group-hover:text-brand-primary transition">Man City</h3>
+          <p class="text-xs text-gray-500">Premier League</p>
+        </div>
+      </div>
+      <p class="text-xs text-gray-600 dark:text-gray-400 line-clamp-2">
+        Haaland contract talks + squad news
+      </p>
+      <p class="text-[11px] text-gray-400 mt-2">Updated 6h ago</p>
+    </a>
+
+    <!-- Arsenal -->
+    <a href="#" class="group bg-white dark:bg-brand-card rounded-xl p-4 hover:ring-2 hover:ring-brand-primary/40 transition shadow-sm min-w-0">
+      <div class="flex items-center gap-3 mb-3">
+        <img src="logos/arsenal.png" class="w-10 h-10 object-contain flex-shrink-0" alt="Arsenal">
+        <div class="min-w-0">
+          <h3 class="font-bold text-sm group-hover:text-brand-primary transition">Arsenal</h3>
+          <p class="text-xs text-gray-500">Premier League</p>
+        </div>
+      </div>
+      <p class="text-xs text-gray-600 dark:text-gray-400 line-clamp-2">
+        Lewis-Skelly future + pre-season plans
+      </p>
+      <p class="text-[11px] text-gray-400 mt-2">Updated 3h ago</p>
+    </a>
+
+    <!-- Real Madrid -->
+    <a href="#" class="group bg-white dark:bg-brand-card rounded-xl p-4 hover:ring-2 hover:ring-brand-primary/40 transition shadow-sm min-w-0">
+      <div class="flex items-center gap-3 mb-3">
+        <img src="logos/real.png" class="w-10 h-10 object-contain flex-shrink-0" alt="Real Madrid">
+        <div class="min-w-0">
+          <h3 class="font-bold text-sm group-hover:text-brand-primary transition">Real Madrid</h3>
+          <p class="text-xs text-gray-500">La Liga</p>
+        </div>
+      </div>
+      <p class="text-xs text-gray-600 dark:text-gray-400 line-clamp-2">
+        Mbappe boot deal + Vinicius contract
+      </p>
+      <p class="text-[11px] text-gray-400 mt-2">Updated 1h ago</p>
+    </a>
+
+    <!-- Barcelona -->
+    <a href="#" class="group bg-white dark:bg-brand-card rounded-xl p-4 hover:ring-2 hover:ring-brand-primary/40 transition shadow-sm min-w-0">
+      <div class="flex items-center gap-3 mb-3">
+        <img src="logos/barca.png" class="w-10 h-10 object-contain flex-shrink-0" alt="Barcelona">
+        <div class="min-w-0">
+          <h3 class="font-bold text-sm group-hover:text-brand-primary transition">Barcelona</h3>
+          <p class="text-xs text-gray-500">La Liga</p>
+        </div>
+      </div>
+      <p class="text-xs text-gray-600 dark:text-gray-400 line-clamp-2">
+        Cancelo presentation + squad rebuild
+      </p>
+      <p class="text-[11px] text-gray-400 mt-2">Updated 4h ago</p>
+    </a>
+
+    <!-- Bayern -->
+    <a href="#" class="group bg-white dark:bg-brand-card rounded-xl p-4 hover:ring-2 hover:ring-brand-primary/40 transition shadow-sm min-w-0">
+      <div class="flex items-center gap-3 mb-3">
+        <img src="logos/bayern.png" class="w-10 h-10 object-contain flex-shrink-0" alt="Bayern Munich">
+        <div class="min-w-0">
+          <h3 class="font-bold text-sm group-hover:text-brand-primary transition">Bayern Munich</h3>
+          <p class="text-xs text-gray-500">Bundesliga</p>
+        </div>
+      </div>
+      <p class="text-xs text-gray-600 dark:text-gray-400 line-clamp-2">
+        Pre-season form + transfer targets
+      </p>
+      <p class="text-[11px] text-gray-400 mt-2">Updated 7h ago</p>
+    </a>
+
+  </div>
+</section>
 
         <!-- Videos -->
-        <section>
+        <section class="min-w-0">
           <div class="flex items-center justify-between mb-4">
             <h2 class="text-lg font-bold flex items-center gap-2">
               <span class="w-1 h-5 bg-brand-primary rounded-full"></span>
               Videos
             </h2>
-            <a href="#" class="text-sm text-brand-primary hover:underline">More videos</a>
+
+            <a href="#" class="text-sm text-brand-primary hover:underline">
+              More videos
+            </a>
           </div>
+
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div class="rounded-xl overflow-hidden aspect-video bg-black">
+
+            <div class="rounded-xl overflow-hidden aspect-video bg-black min-w-0">
               <video class="w-full h-full object-cover" controls>
                 <source src="videos/myvideo1.mp4" type="video/mp4">
               </video>
             </div>
-            <div class="rounded-xl overflow-hidden aspect-video bg-black">
+
+            <div class="rounded-xl overflow-hidden aspect-video bg-black min-w-0">
               <video class="w-full h-full object-cover" controls>
                 <source src="videos/myvideo2.mp4" type="video/mp4">
               </video>
             </div>
+
           </div>
         </section>
+
       </div>
 
       <!-- SIDEBAR -->
-      <aside class="lg:col-span-4 space-y-5">
+      <aside class="lg:col-span-4 min-w-0 space-y-5">
 
         <!-- Live Scores with Logos -->
         <div class="bg-white dark:bg-brand-card rounded-xl overflow-hidden shadow-sm">
+
           <div class="px-4 py-3 border-b border-gray-200 dark:border-white/10 flex items-center justify-between">
             <h2 class="font-bold text-sm flex items-center gap-2">
               <span class="w-2 h-2 bg-red-500 rounded-full animate-pulse"></span>
               Live Scores
             </h2>
-            <a href="#" class="text-xs text-brand-primary">View all</a>
+
+            <a href="#" class="text-xs text-brand-primary">
+              View all
+            </a>
           </div>
 
           <div class="divide-y divide-gray-200 dark:divide-white/5 text-sm">
@@ -278,149 +493,168 @@
             <!-- Match 1 -->
             <div class="px-4 py-3">
               <div class="flex items-center justify-between mb-1">
-                <div class="flex items-center gap-2">
-                  <img src="logos/barca.png" class="w-5 h-5 object-contain" alt="">
-                  <span>Barcelona</span>
+                <div class="flex items-center gap-2 min-w-0">
+                  <img src="logos/barca.png" class="w-5 h-5 object-contain flex-shrink-0" alt="Barcelona">
+                  <span class="truncate">Barcelona</span>
                 </div>
-                <span class="font-bold">1</span>
+                <span class="font-bold flex-shrink-0">1</span>
               </div>
+
               <div class="flex items-center justify-between text-gray-500 dark:text-gray-400">
-                <div class="flex items-center gap-2">
-                  <img src="logos/paris.png" class="w-5 h-5 object-contain" alt="">
-                  <span>PSG</span>
+                <div class="flex items-center gap-2 min-w-0">
+                  <img src="logos/paris.png" class="w-5 h-5 object-contain flex-shrink-0" alt="PSG">
+                  <span class="truncate">PSG</span>
                 </div>
-                <span class="font-bold">2</span>
+                <span class="font-bold flex-shrink-0">2</span>
               </div>
+
               <div class="text-xs text-gray-500 mt-1 font-medium">FT</div>
             </div>
 
             <!-- Match 2 -->
             <div class="px-4 py-3">
               <div class="flex items-center justify-between mb-1">
-                <div class="flex items-center gap-2">
-                  <img src="logos/arsensal.png" class="w-5 h-5 object-contain" alt="">
-                  <span>Arsenal</span>
+                <div class="flex items-center gap-2 min-w-0">
+                  <img src="logos/arsenal.png" class="w-5 h-5 object-contain flex-shrink-0" alt="Arsenal">
+                  <span class="truncate">Arsenal</span>
                 </div>
-                <span class="font-bold">3</span>
+                <span class="font-bold flex-shrink-0">3</span>
               </div>
+
               <div class="flex items-center justify-between text-gray-500 dark:text-gray-400">
-                <div class="flex items-center gap-2">
-                  <img src="logos/man-city.png" class="w-5 h-5 object-contain" alt="">
-                  <span>Man City</span>
+                <div class="flex items-center gap-2 min-w-0">
+                  <img src="logos/man-city.png" class="w-5 h-5 object-contain flex-shrink-0" alt="Manchester-City">
+                  <span class="truncate">Man City</span>
                 </div>
-                <span class="font-bold">0</span>
+                <span class="font-bold flex-shrink-0">0</span>
               </div>
+
               <div class="text-xs text-gray-500 mt-1">FT</div>
             </div>
 
             <!-- Match 3 -->
             <div class="px-4 py-3">
               <div class="flex items-center justify-between mb-1">
-                <div class="flex items-center gap-2">
-                  <img src="logos/liverpool.png" class="w-5 h-5 object-contain" alt="">
-                  <span>Liverpool</span>
+                <div class="flex items-center gap-2 min-w-0">
+                  <img src="logos/liverpool.png" class="w-5 h-5 object-contain flex-shrink-0" alt="Liverpool">
+                  <span class="truncate">Liverpool</span>
                 </div>
-                <span class="font-bold">1</span>
+                <span class="font-bold flex-shrink-0">1</span>
               </div>
+
               <div class="flex items-center justify-between text-gray-500 dark:text-gray-400">
-                <div class="flex items-center gap-2">
-                  <img src="logos/chelsea.png" class="w-5 h-5 object-contain" alt="">
-                  <span>Chelsea</span>
+                <div class="flex items-center gap-2 min-w-0">
+                  <img src="logos/chelsea.png" class="w-5 h-5 object-contain flex-shrink-0" alt="Chelsea">
+                  <span class="truncate">Chelsea</span>
                 </div>
-                <span class="font-bold">2</span>
+                <span class="font-bold flex-shrink-0">2</span>
               </div>
+
               <div class="text-xs text-red-500 mt-1 font-medium">LIVE 54'</div>
             </div>
 
             <!-- Match 4 -->
             <div class="px-4 py-3">
               <div class="flex items-center justify-between mb-1">
-                <div class="flex items-center gap-2">
-                  <img src="logos/man-united.png" class="w-5 h-5 object-contain" alt="">
-                  <span>Man United</span>
+                <div class="flex items-center gap-2 min-w-0">
+                  <img src="logos/man-united.png" class="w-5 h-5 object-contain flex-shrink-0" alt="Manchester-United">
+                  <span class="truncate">Man United</span>
                 </div>
-                <span class="font-bold">2</span>
+                <span class="font-bold flex-shrink-0">2</span>
               </div>
+
               <div class="flex items-center justify-between text-gray-500 dark:text-gray-400">
-                <div class="flex items-center gap-2">
-                  <img src="logos/fulham.png" class="w-5 h-5 object-contain" alt="">
-                  <span>Fulham</span>
+                <div class="flex items-center gap-2 min-w-0">
+                  <img src="logos/fulham.png" class="w-5 h-5 object-contain flex-shrink-0" alt="Fulham">
+                  <span class="truncate">Fulham</span>
                 </div>
-                <span class="font-bold">3</span>
+                <span class="font-bold flex-shrink-0">3</span>
               </div>
+
               <div class="text-xs text-gray-500 mt-1">FT</div>
             </div>
-             <!-- Match 5 -->
+
+            <!-- Match 5 -->
             <div class="px-4 py-3">
               <div class="flex items-center justify-between mb-1">
-                <div class="flex items-center gap-2">
-                  <img src="logos/milan.png" class="w-5 h-5 object-contain" alt="">
-                  <span>AC Milan</span>
+                <div class="flex items-center gap-2 min-w-0">
+                  <img src="logos/milan.png" class="w-5 h-5 object-contain flex-shrink-0" alt="AC-Milan">
+                  <span class="truncate">AC Milan</span>
                 </div>
-                <span class="font-bold">4</span>
+                <span class="font-bold flex-shrink-0">4</span>
               </div>
+
               <div class="flex items-center justify-between text-gray-500 dark:text-gray-400">
-                <div class="flex items-center gap-2">
-                  <img src="logos/lazio.png" class="w-5 h-5 object-contain" alt="">
-                  <span>Lazio</span>
+                <div class="flex items-center gap-2 min-w-0">
+                  <img src="logos/lazio.png" class="w-5 h-5 object-contain flex-shrink-0" alt="Lazio">
+                  <span class="truncate">Lazio</span>
                 </div>
-                <span class="font-bold">2</span>
+                <span class="font-bold flex-shrink-0">2</span>
               </div>
+
               <div class="text-xs text-gray-500 mt-1 font-medium">FT</div>
             </div>
-             <!-- Match 6-->
+
+            <!-- Match 6 -->
             <div class="px-4 py-3">
               <div class="flex items-center justify-between mb-1">
-                <div class="flex items-center gap-2">
-                  <img src="logos/fica.png" class="w-5 h-5 object-contain" alt="">
-                  <span>Benfica</span>
+                <div class="flex items-center gap-2 min-w-0">
+                  <img src="logos/fica.png" class="w-5 h-5 object-contain flex-shrink-0" alt="Benfica">
+                  <span class="truncate">Benfica</span>
                 </div>
-                <span class="font-bold">1</span>
+                <span class="font-bold flex-shrink-0">1</span>
               </div>
+
               <div class="flex items-center justify-between text-gray-500 dark:text-gray-400">
-                <div class="flex items-center gap-2">
-                  <img src="logos/porto.jpg" class="w-5 h-5 object-contain" alt="">
-                  <span>Porto</span>
+                <div class="flex items-center gap-2 min-w-0">
+                  <img src="logos/porto.png" class="w-5 h-5 object-contain flex-shrink-0" alt="Porto">
+                  <span class="truncate">Porto</span>
                 </div>
-                <span class="font-bold">3</span>
+                <span class="font-bold flex-shrink-0">3</span>
               </div>
+
               <div class="text-xs text-gray-500 mt-1 font-medium">HT</div>
             </div>
-             <!-- Match 7 -->
+
+            <!-- Match 7 -->
             <div class="px-4 py-3">
               <div class="flex items-center justify-between mb-1">
-                <div class="flex items-center gap-2">
-                  <img src="logos/berlin.png" class="w-5 h-5 object-contain" alt="">
-                  <span>Union Berlin</span>
+                <div class="flex items-center gap-2 min-w-0">
+                  <img src="logos/berlin.png" class="w-5 h-5 object-contain flex-shrink-0" alt="Union-Berlin">
+                  <span class="truncate">Union Berlin</span>
                 </div>
-                <span class="font-bold">1</span>
+                <span class="font-bold flex-shrink-0">1</span>
               </div>
+
               <div class="flex items-center justify-between text-gray-500 dark:text-gray-400">
-                <div class="flex items-center gap-2">
-                  <img src="logos/bayern.png" class="w-5 h-5 object-contain" alt="">
-                  <span>Bayern Munich</span>
+                <div class="flex items-center gap-2 min-w-0">
+                  <img src="logos/bayern.png" class="w-5 h-5 object-contain flex-shrink-0" alt="Bayern-Munich">
+                  <span class="truncate">Bayern Munich</span>
                 </div>
-                <span class="font-bold">4</span>
+                <span class="font-bold flex-shrink-0">4</span>
               </div>
-              <div class="text-xs text-red-500 mt-1 font-medium"> LIVE 60'</div>
+
+              <div class="text-xs text-red-500 mt-1 font-medium">LIVE 60'</div>
             </div>
 
             <!-- Match 8 -->
             <div class="px-4 py-3">
               <div class="flex items-center justify-between mb-1">
-                <div class="flex items-center gap-2">
-                  <img src="logos/real.png" class="w-5 h-5 object-contain" alt="">
-                  <span>Real Madrid</span>
+                <div class="flex items-center gap-2 min-w-0">
+                  <img src="logos/real.png" class="w-5 h-5 object-contain flex-shrink-0" alt="Real-Madrid">
+                  <span class="truncate">Real Madrid</span>
                 </div>
-                <span class="font-bold">3</span>
+                <span class="font-bold flex-shrink-0">3</span>
               </div>
+
               <div class="flex items-center justify-between text-gray-500 dark:text-gray-400">
-                <div class="flex items-center gap-2">
-                  <img src="logos/elche.png" class="w-5 h-5 object-contain" alt="">
-                  <span>Elche</span>
+                <div class="flex items-center gap-2 min-w-0">
+                  <img src="logos/elche.png" class="w-5 h-5 object-contain flex-shrink-0" alt="Elche">
+                  <span class="truncate">Elche</span>
                 </div>
-                <span class="font-bold">2</span>
+                <span class="font-bold flex-shrink-0">2</span>
               </div>
+
               <div class="text-xs text-red-500 mt-1 font-medium">LIVE 78'</div>
             </div>
 
@@ -433,21 +667,33 @@
             <span class="w-1 h-4 bg-brand-primary rounded-full"></span>
             Most Read
           </h2>
+
           <div class="space-y-4">
-            <a href="article.html" class="flex gap-3 group">
-              <span class="text-xl font-black text-brand-primary/40">1</span>
-              <p class="text-sm leading-snug group-hover:text-brand-primary transition">Mbappe's Nike split – full story</p>
+
+            <a href="article.html" class="flex gap-3 group min-w-0">
+              <span class="text-xl font-black text-brand-primary/40 flex-shrink-0">1</span>
+              <p class="text-sm leading-snug group-hover:text-brand-primary transition min-w-0">
+                Mbappe's Nike split - full story
+              </p>
             </a>
-            <a href="article.html" class="flex gap-3 group">
-              <span class="text-xl font-black text-brand-primary/40">2</span>
-              <p class="text-sm leading-snug group-hover:text-brand-primary transition">Why Baleba is perfect for Man United</p>
+
+            <a href="article.html" class="flex gap-3 group min-w-0">
+              <span class="text-xl font-black text-brand-primary/40 flex-shrink-0">2</span>
+              <p class="text-sm leading-snug group-hover:text-brand-primary transition min-w-0">
+                Why Baleba is perfect for Man United
+              </p>
             </a>
-            <a href="article.html" class="flex gap-3 group">
-              <span class="text-xl font-black text-brand-primary/40">3</span>
-              <p class="text-sm leading-snug group-hover:text-brand-primary transition">Bold predictions for 2026-27</p>
+
+            <a href="article.html" class="flex gap-3 group min-w-0">
+              <span class="text-xl font-black text-brand-primary/40 flex-shrink-0">3</span>
+              <p class="text-sm leading-snug group-hover:text-brand-primary transition min-w-0">
+                Bold predictions for 2026-27
+              </p>
             </a>
+
           </div>
         </div>
+
       </aside>
     </div>
   </main>
@@ -455,6 +701,7 @@
   <!-- FOOTER -->
   <footer class="bg-white dark:bg-black border-t border-gray-200 dark:border-white/10 mt-12">
     <div class="max-w-7xl mx-auto px-4 py-10">
+
       <div class="flex justify-center mb-8">
         <div class="bg-gray-100 dark:bg-[#151515] border border-gray-300 dark:border-white/15 px-10 py-3 rounded-md">
           <span class="text-3xl font-black tracking-tighter">GOAL</span>
@@ -462,29 +709,40 @@
       </div>
 
       <div class="flex flex-wrap justify-center items-center gap-x-4 gap-y-3 text-sm text-gray-600 dark:text-gray-400 mb-6">
+
         <a href="#" class="hover:text-brand-primary transition">Contact Us</a>
         <span>|</span>
+
         <a href="#" class="hover:text-brand-primary transition">Terms of Service</a>
         <span>|</span>
+
         <a href="#" class="hover:text-brand-primary transition">Privacy policy</a>
         <span>|</span>
+
         <a href="#" class="hover:text-brand-primary transition">Careers</a>
         <span>|</span>
+
         <a href="#" class="hover:text-brand-primary transition">Goal Live</a>
 
         <button id="themeToggle" class="ml-2 p-1.5 hover:bg-gray-200 dark:hover:bg-white/10 rounded-full transition">
+
           <svg id="moonIcon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"/>
           </svg>
+
           <svg id="sunIcon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"/>
           </svg>
+
         </button>
       </div>
 
       <div class="text-center text-xs text-gray-500">
         Copyright © 2026 GoalZone. Educational project inspired by GOAL.com.
       </div>
+
     </div>
   </footer>
 
